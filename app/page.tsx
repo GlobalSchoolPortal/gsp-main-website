@@ -197,7 +197,7 @@ export default function HomePage() {
                 </div>
                 <div>
                   <h1 className="text-lg sm:text-xl font-bold text-gray-900">Global School Portal</h1>
-                  <p className="text-xs text-gray-500 hidden sm:block">IntegraSphere Platform</p>
+                  {/*<p className="text-xs text-gray-500 hidden sm:block">IntegraSphere Platform</p>*/}
                 </div>
               </div>
               <nav className="flex items-center space-x-3 sm:space-x-6">
@@ -570,9 +570,9 @@ export default function HomePage() {
                   <li>
                     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
                       <DialogTrigger asChild>
-                        <Link href="#" className="hover:text-white transition-colors">
+                        <button className="hover:text-blue-400 transition-colors cursor-pointer text-left">
                           Contact Us
-                        </Link>
+                        </button>
                       </DialogTrigger>
                     </Dialog>
                   </li>
