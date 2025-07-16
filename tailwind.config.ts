@@ -12,6 +12,13 @@ const config: Config = {
   ],
   theme: {
   	extend: {
+		fontFamily: {
+			roboto: ['var(--font-roboto)', 'Roboto', 'sans-serif'],
+			arial: ['Arial', 'Helvetica', 'sans-serif'],
+			terminal: ['var(--font-terminal)', 'Terminal', 'monospace'],
+			monospace: ['Courier New', 'Courier', 'monospace'],
+			times: ['Times New Roman', 'Times', 'serif'],
+		},
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

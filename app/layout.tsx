@@ -1,14 +1,19 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Inter } from "next/font/google"
+import { Roboto } from "next/font/google"
 import "./globals.css"
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Roboto({
+  subsets: ['latin'],
+  variable: '--font-roboto',
+  weight: ['400', '700'], // optional
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Global School Portal - Complete School Management Solution",
   description:
-    "Transform your school with Global School Portal. Comprehensive CRM, biometric attendance, PydragAnd coding platform, and GOGETHER community features.",
+    "Seamlessly uniting school management, coding education, and student-parent communities with Global School Portal. Comprehensive CRM, biometric attendance, PydragAnd coding platform, and GOGETHER community features.",
   keywords: "school management, CRM, biometric attendance, coding education, school portal, education technology",
     generator: 'v0.dev'
 }
@@ -20,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.variable}>{children}</body>
     </html>
   )
 }
