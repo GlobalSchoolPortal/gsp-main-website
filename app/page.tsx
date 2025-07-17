@@ -420,7 +420,7 @@ export default function HomePage() {
                         </Link>
 
                         {/* Learning & Community Module */}
-                        <Link href={"https://pydrag.vercel.app"} target={"_blank"}>
+                        <Link href={"https://pydrag.globalschoolportal.com"} target={"_blank"}>
                         <Card className="border-0 shadow-lg">
                             <CardHeader>
                                 <div
