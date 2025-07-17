@@ -322,7 +322,7 @@ export default function HomePage() {
                             </CardHeader>
                         </Card>
 
-                        <Link href={"https://pydrag.vercel.app//"} target="_blank">
+                        <Link href={"https://pydrag.globalschoolportal.com/"} target="_blank">
                             <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
                                 <CardHeader>
                                     <div
