@@ -314,14 +314,13 @@ export default function HomePage() {
                                         strokeLinecap="round"
                                         strokeLinejoin="round"
                                         strokeWidth={3}
-                                        d="M7 13l3 3 7-3"
-                                        className="drop-shadow-sm"
+                                        d="M6 9l6 6 6-6"
+                                        className="drop-shadow-sm animate-bounce"
                                     />
                                 </svg>
 
                                 {/* Glowing effect */}
-                                <div
-                                    className="absolute inset-0 w-8 h-8 bg-blue-400/20 rounded-full blur-md group-hover:bg-blue-500/30 transition-all duration-300 animate-pulse"></div>
+                                <div className="absolute inset-0 w-8 h-8 bg-blue-400/20 rounded-full blur-md group-hover:bg-blue-500/30 transition-all duration-300 animate-pulse"></div>
                             </div>
                         </Link>
                     </div>
@@ -340,69 +339,69 @@ export default function HomePage() {
                         </p>
                     </div>
 
-                {/*    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">*/}
-                {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
-                {/*            <CardHeader>*/}
-                {/*                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">*/}
-                {/*                    <Fingerprint className="w-6 h-6 text-blue-600"/>*/}
-                {/*                </div>*/}
-                {/*                <CardTitle>Real Time Attendance</CardTitle>*/}
-                {/*                <CardDescription>Advanced attendance system with real-time tracking and*/}
-                {/*                    alerts</CardDescription>*/}
-                {/*            </CardHeader>*/}
-                {/*        </Card>*/}
+                    {/*    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">*/}
+                    {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
+                    {/*            <CardHeader>*/}
+                    {/*                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">*/}
+                    {/*                    <Fingerprint className="w-6 h-6 text-blue-600"/>*/}
+                    {/*                </div>*/}
+                    {/*                <CardTitle>Real Time Attendance</CardTitle>*/}
+                    {/*                <CardDescription>Advanced attendance system with real-time tracking and*/}
+                    {/*                    alerts</CardDescription>*/}
+                    {/*            </CardHeader>*/}
+                    {/*        </Card>*/}
 
-                {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
-                {/*            <CardHeader>*/}
-                {/*                <div*/}
-                {/*                    className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">*/}
-                {/*                    <Code className="w-6 h-6 text-green-600"/>*/}
-                {/*                </div>*/}
-                {/*                <CardTitle>PyDrag Coding Platform </CardTitle>*/}
-                {/*                <CardDescription>*/}
-                {/*                    Interactive drag-and-drop coding platform for students to learn programming*/}
-                {/*                    visually*/}
-                {/*                </CardDescription>*/}
-                {/*            </CardHeader>*/}
-                {/*        </Card>*/}
+                    {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
+                    {/*            <CardHeader>*/}
+                    {/*                <div*/}
+                    {/*                    className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">*/}
+                    {/*                    <Code className="w-6 h-6 text-green-600"/>*/}
+                    {/*                </div>*/}
+                    {/*                <CardTitle>PyDrag Coding Platform </CardTitle>*/}
+                    {/*                <CardDescription>*/}
+                    {/*                    Interactive drag-and-drop coding platform for students to learn programming*/}
+                    {/*                    visually*/}
+                    {/*                </CardDescription>*/}
+                    {/*            </CardHeader>*/}
+                    {/*        </Card>*/}
 
-                {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
-                {/*            <CardHeader>*/}
-                {/*                <div*/}
-                {/*                    className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">*/}
-                {/*                    <MessageSquare className="w-6 h-6 text-purple-600"/>*/}
-                {/*                </div>*/}
-                {/*                <CardTitle>GoGether Community</CardTitle>*/}
-                {/*                <CardDescription>*/}
-                {/*                    Collaborative platform where students connect, ask questions, and teachers provide*/}
-                {/*                    guidance*/}
-                {/*                </CardDescription>*/}
-                {/*            </CardHeader>*/}
-                {/*        </Card>*/}
+                    {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
+                    {/*            <CardHeader>*/}
+                    {/*                <div*/}
+                    {/*                    className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">*/}
+                    {/*                    <MessageSquare className="w-6 h-6 text-purple-600"/>*/}
+                    {/*                </div>*/}
+                    {/*                <CardTitle>GoGether Community</CardTitle>*/}
+                    {/*                <CardDescription>*/}
+                    {/*                    Collaborative platform where students connect, ask questions, and teachers provide*/}
+                    {/*                    guidance*/}
+                    {/*                </CardDescription>*/}
+                    {/*            </CardHeader>*/}
+                    {/*        </Card>*/}
 
-                {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
-                {/*            <CardHeader>*/}
-                {/*                <div*/}
-                {/*                    className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">*/}
-                {/*                    <Bell className="w-6 h-6 text-orange-600"/>*/}
-                {/*                </div>*/}
-                {/*                <CardTitle>Real-time Updates</CardTitle>*/}
-                {/*                <CardDescription>*/}
-                {/*                    Instant notifications to parents about attendance, grades, and school activities*/}
-                {/*                </CardDescription>*/}
-                {/*            </CardHeader>*/}
-                {/*        </Card>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
-                {/*<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16">*/}
-                {/*    <div className="max-w-7xl mx-auto px-4">*/}
-                {/*        <div className="text-center mb-16">*/}
-                {/*            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Features</h2>*/}
-                {/*            <p className="text-xl text-gray-600 max-w-2xl mx-auto">*/}
-                {/*                Discover the powerful tools that make GSP the perfect choice for modern education*/}
-                {/*            </p>*/}
-                {/*        </div>*/}
-                        <FlipCards />
+                    {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
+                    {/*            <CardHeader>*/}
+                    {/*                <div*/}
+                    {/*                    className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">*/}
+                    {/*                    <Bell className="w-6 h-6 text-orange-600"/>*/}
+                    {/*                </div>*/}
+                    {/*                <CardTitle>Real-time Updates</CardTitle>*/}
+                    {/*                <CardDescription>*/}
+                    {/*                    Instant notifications to parents about attendance, grades, and school activities*/}
+                    {/*                </CardDescription>*/}
+                    {/*            </CardHeader>*/}
+                    {/*        </Card>*/}
+                    {/*    </div>*/}
+                    {/*</div>*/}
+                    {/*<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16">*/}
+                    {/*    <div className="max-w-7xl mx-auto px-4">*/}
+                    {/*        <div className="text-center mb-16">*/}
+                    {/*            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Features</h2>*/}
+                    {/*            <p className="text-xl text-gray-600 max-w-2xl mx-auto">*/}
+                    {/*                Discover the powerful tools that make GSP the perfect choice for modern education*/}
+                    {/*            </p>*/}
+                    {/*        </div>*/}
+                    <FlipCards/>
                     {/*</div>*/}
                 </div>
             </section>
