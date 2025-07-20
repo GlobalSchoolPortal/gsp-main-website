@@ -38,6 +38,7 @@ import {
 import {Input} from "@/components/ui/input"
 import {Label} from "@/components/ui/label"
 import {Textarea} from "@/components/ui/textarea"
+import FlipCards from "@/components/flip-card";
 
 export default function HomePage() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -265,22 +266,22 @@ export default function HomePage() {
             </header>
 
             {/* Hero Section */}
-            <section className="py-12 sm:py-16 lg:py-20 px-4">
+            <section className="py-4 sm:py-6 lg:py-8 px-4">
                 <div className="container mx-auto px-4 max-w-7xl text-center">
                     <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100 text-xs sm:text-sm">
-                        Complete School Management Solution
+                        Unified Education Suite: ERP +CRM · Visual Python · Community.
                     </Badge>
-                    <h1 className="font-arial text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
-                        Unified platform for school management, coding education, and student-parent engagement.<br/>
-                        <span
-                            className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-              Global School Portal
+                    <span
+                        className="text-5xl sm:text-4xl md:text-5xl lg:text-6xl bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <br/>Global School Portal
             </span>
+                    <h1 className="font-arial text-3xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+                        Everything your school needs — unified, simplified, and ready to grow.
+                        <br/>
                     </h1>
                     <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
-                        A unified platform that streamlines school administration, enhances parent-teacher
-                        communication, and
-                        provides innovative learning tools including drag-and-drop coding and community features.
+                        A unified platform that Simplify Administration, Empower Learning, and Connect Communities —
+                        with Smart Tools, Drag-and-Drop Coding, and Seamless Communication platform.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
                         <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
@@ -290,9 +291,39 @@ export default function HomePage() {
                                 </Button>
                             </DialogTrigger>
                         </Dialog>
-                        <Button size="lg" variant="outline" className="w-full sm:w-auto bg-transparent" asChild>
-                            <Link href="#features">Explore Features</Link>
-                        </Button>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                        <Link
+                            href="#features"
+                            className="group flex flex-col items-center gap-3 p-6 transition-all duration-500"
+                        >
+          <span
+              className="text-blue-600 group-hover:text-blue-700 animate-bounce group-hover:animate-pulse transition-colors duration-300">
+            Explore Features
+          </span>
+
+                            {/* Animated V-shaped down arrow */}
+                            <div className="relative">
+                                <svg
+                                    className="w-8 h-8 text-blue-600 group-hover:text-blue-700 animate-bounce group-hover:animate-pulse transition-colors duration-300"
+                                    fill="none"
+                                    stroke="currentColor"
+                                    viewBox="0 0 24 24"
+                                >
+                                    <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={3}
+                                        d="M7 13l3 3 7-3"
+                                        className="drop-shadow-sm"
+                                    />
+                                </svg>
+
+                                {/* Glowing effect */}
+                                <div
+                                    className="absolute inset-0 w-8 h-8 bg-blue-400/20 rounded-full blur-md group-hover:bg-blue-500/30 transition-all duration-300 animate-pulse"></div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </section>
@@ -305,66 +336,74 @@ export default function HomePage() {
                             Everything Your School Needs
                         </h2>
                         <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto">
-                            From attendance tracking to coding education, we provide comprehensive tools for modern
-                            education
+                            From school admins to coders to parents—everything in one seamless ecosystem.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-                        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                            <CardHeader>
-                                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                                    <Fingerprint className="w-6 h-6 text-blue-600"/>
-                                </div>
-                                <CardTitle>Real Time Attendance</CardTitle>
-                                <CardDescription>Advanced attendance system with real-time tracking and
-                                    alerts</CardDescription>
-                            </CardHeader>
-                        </Card>
+                {/*    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">*/}
+                {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
+                {/*            <CardHeader>*/}
+                {/*                <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">*/}
+                {/*                    <Fingerprint className="w-6 h-6 text-blue-600"/>*/}
+                {/*                </div>*/}
+                {/*                <CardTitle>Real Time Attendance</CardTitle>*/}
+                {/*                <CardDescription>Advanced attendance system with real-time tracking and*/}
+                {/*                    alerts</CardDescription>*/}
+                {/*            </CardHeader>*/}
+                {/*        </Card>*/}
 
-                        <Link href={"https://pydrag.globalschoolportal.com/"} target="_blank">
-                            <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                                <CardHeader>
-                                    <div
-                                        className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                                        <Code className="w-6 h-6 text-green-600"/>
-                                    </div>
-                                    <CardTitle>PyDrag Coding Platform </CardTitle>
-                                    <CardDescription>
-                                        Interactive drag-and-drop coding platform for students to learn programming
-                                        visually
-                                    </CardDescription>
-                                </CardHeader>
-                            </Card>
-                        </Link>
+                {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
+                {/*            <CardHeader>*/}
+                {/*                <div*/}
+                {/*                    className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">*/}
+                {/*                    <Code className="w-6 h-6 text-green-600"/>*/}
+                {/*                </div>*/}
+                {/*                <CardTitle>PyDrag Coding Platform </CardTitle>*/}
+                {/*                <CardDescription>*/}
+                {/*                    Interactive drag-and-drop coding platform for students to learn programming*/}
+                {/*                    visually*/}
+                {/*                </CardDescription>*/}
+                {/*            </CardHeader>*/}
+                {/*        </Card>*/}
 
-                        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                            <CardHeader>
-                                <div
-                                    className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                                    <MessageSquare className="w-6 h-6 text-purple-600"/>
-                                </div>
-                                <CardTitle>GoGether Community</CardTitle>
-                                <CardDescription>
-                                    Collaborative platform where students connect, ask questions, and teachers provide
-                                    guidance
-                                </CardDescription>
-                            </CardHeader>
-                        </Card>
+                {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
+                {/*            <CardHeader>*/}
+                {/*                <div*/}
+                {/*                    className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mb-4">*/}
+                {/*                    <MessageSquare className="w-6 h-6 text-purple-600"/>*/}
+                {/*                </div>*/}
+                {/*                <CardTitle>GoGether Community</CardTitle>*/}
+                {/*                <CardDescription>*/}
+                {/*                    Collaborative platform where students connect, ask questions, and teachers provide*/}
+                {/*                    guidance*/}
+                {/*                </CardDescription>*/}
+                {/*            </CardHeader>*/}
+                {/*        </Card>*/}
 
-                        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">
-                            <CardHeader>
-                                <div
-                                    className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">
-                                    <Bell className="w-6 h-6 text-orange-600"/>
-                                </div>
-                                <CardTitle>Real-time Updates</CardTitle>
-                                <CardDescription>
-                                    Instant notifications to parents about attendance, grades, and school activities
-                                </CardDescription>
-                            </CardHeader>
-                        </Card>
-                    </div>
+                {/*        <Card className="border-0 shadow-lg hover:shadow-xl transition-shadow">*/}
+                {/*            <CardHeader>*/}
+                {/*                <div*/}
+                {/*                    className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mb-4">*/}
+                {/*                    <Bell className="w-6 h-6 text-orange-600"/>*/}
+                {/*                </div>*/}
+                {/*                <CardTitle>Real-time Updates</CardTitle>*/}
+                {/*                <CardDescription>*/}
+                {/*                    Instant notifications to parents about attendance, grades, and school activities*/}
+                {/*                </CardDescription>*/}
+                {/*            </CardHeader>*/}
+                {/*        </Card>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
+                {/*<div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-indigo-50 py-16">*/}
+                {/*    <div className="max-w-7xl mx-auto px-4">*/}
+                {/*        <div className="text-center mb-16">*/}
+                {/*            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Features</h2>*/}
+                {/*            <p className="text-xl text-gray-600 max-w-2xl mx-auto">*/}
+                {/*                Discover the powerful tools that make GSP the perfect choice for modern education*/}
+                {/*            </p>*/}
+                {/*        </div>*/}
+                        <FlipCards />
+                    {/*</div>*/}
                 </div>
             </section>
 
@@ -383,78 +422,78 @@ export default function HomePage() {
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                         {/* School Management Module */}
                         <Link href={"https://master.globalschoolportal.com/login"} target={"_blank"}>
-                        <Card className="border-0 shadow-lg">
-                            <CardHeader>
-                                <div
-                                    className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
-                                    <BookOpen className="w-8 h-8 text-white"/>
-                                </div>
-                                <CardTitle className="text-xl">School Management</CardTitle>
-                                <CardDescription>Complete academic and administrative control</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <ul className="space-y-3">
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">Academic Reports & Analytics</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">Attendance Tracking</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">Parent-Teacher Communication </span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">Leave Applications</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">{"Fee and Payment System"}</span>
-                                    </li>
-                                </ul>
-                            </CardContent>
-                        </Card>
+                            <Card className="border-0 shadow-lg">
+                                <CardHeader>
+                                    <div
+                                        className="w-16 h-16 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-4">
+                                        <BookOpen className="w-8 h-8 text-white"/>
+                                    </div>
+                                    <CardTitle className="text-xl">Smart School Management</CardTitle>
+                                    <CardDescription>Complete academic and administrative control</CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul className="space-y-3">
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">Academic Reports & Analytics</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">Attendance Tracking</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">Parent-Teacher Communication </span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">Leave Applications</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">{"Fee and Payment System"}</span>
+                                        </li>
+                                    </ul>
+                                </CardContent>
+                            </Card>
                         </Link>
 
                         {/* Learning & Community Module */}
                         <Link href={"https://pydrag.globalschoolportal.com"} target={"_blank"}>
-                        <Card className="border-0 shadow-lg">
-                            <CardHeader>
-                                <div
-                                    className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
-                                    <Users className="w-8 h-8 text-white"/>
-                                </div>
-                                <CardTitle className="text-xl">Learning & Community</CardTitle>
-                                <CardDescription>Interactive learning and collaboration tools</CardDescription>
-                            </CardHeader>
-                            <CardContent>
-                                <ul className="space-y-3">
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">PyDrag Coding Platform</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">GoGether Community Hub</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">Student Doubt Resolution</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">Video & Image Sharing</span>
-                                    </li>
-                                    <li className="flex items-center gap-2">
-                                        <CheckCircle className="w-4 h-4 text-green-500"/>
-                                        <span className="text-sm">Peer-to-Peer Learning</span>
-                                    </li>
-                                </ul>
-                            </CardContent>
-                        </Card>
+                            <Card className="border-0 shadow-lg">
+                                <CardHeader>
+                                    <div
+                                        className="w-16 h-16 bg-gradient-to-r from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4">
+                                        <Users className="w-8 h-8 text-white"/>
+                                    </div>
+                                    <CardTitle className="text-xl">Learning & Community</CardTitle>
+                                    <CardDescription>Interactive learning and collaboration tools</CardDescription>
+                                </CardHeader>
+                                <CardContent>
+                                    <ul className="space-y-3">
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">PyDrag Coding Platform</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">GoGether Community Hub</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">Student Doubt Resolution</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">Video & Image Sharing</span>
+                                        </li>
+                                        <li className="flex items-center gap-2">
+                                            <CheckCircle className="w-4 h-4 text-green-500"/>
+                                            <span className="text-sm">Peer-to-Peer Learning</span>
+                                        </li>
+                                    </ul>
+                                </CardContent>
+                            </Card>
                         </Link>
 
                         {/* Administration Module */}
