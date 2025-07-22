@@ -37,43 +37,34 @@ export default function FlipCards() {
             icon: Fingerprint,
             iconColor: "text-blue-600",
             bgColor: "bg-blue-100",
-            title: "Real Time Attendance",
-            shortDescription: "Advanced attendance system with real-time tracking and alerts",
+            title: "Unified ERP & CRM",
+            shortDescription: "Seamlessly manage school operations and foster real-time parent-teacher connection—all in one powerful platform.",
             fullDescription:
-                "Our cutting-edge attendance system uses biometric technology and real-time tracking to ensure accurate monitoring.",
+                "From admissions and attendance to fee management, communication, and reporting—GlobalSchoolPortal brings every stakeholder onto a single, intuitive dashboard designed to enhance productivity, transparency, and engagement.",
         },
         {
             icon: Code,
             iconColor: "text-green-600",
             bgColor: "bg-green-100",
             title: "PyDrag Coding Platform",
-            shortDescription: "Interactive drag-and-drop coding platform for students to learn programming visually",
+            shortDescription: "PyDrag is a visual programming interactive environment that lets students build logical workflows using drag-and-drop blocks.",
             fullDescription:
-                "Revolutionary visual programming platform that makes coding accessible to all students."
+                "Designed for beginners yet powerful enough for advanced users, PyDrag simplifies Python learning through interactive coding, real-time output, and AI-powered assistance. Students can focus on logic and creativity while gaining confidence in coding fundamentals."
         },
         {
             icon: MessageSquare,
             iconColor: "text-purple-600",
             bgColor: "bg-purple-100",
             title: "GoGether Community",
-            shortDescription: "Collaborative platform where students connect, ask questions, and teachers provide guidance",
+            shortDescription: "GoTogether enables communication between parents, teachers, and school admins — combining social features with structured school engagement.",
             fullDescription:
-                "Build a thriving learning community with our social platform. Students can form study groups, ask questions, share resources, and collaborate on projects."
-        },
-        {
-            icon: Bell,
-            iconColor: "text-orange-600",
-            bgColor: "bg-orange-100",
-            title: "Real-time Updates",
-            shortDescription: "Instant notifications to parents about attendance, grades, and school activities",
-            fullDescription:
-                "Keep parents informed with comprehensive real-time updates.",
-        },
+                "From real-time updates to event coordination and group chats, GoTogether creates a vibrant digital space for seamless communication. Share announcements, plan carpools, and stay connected with your school community—all from one easy-to-use app.’."
+        }
     ]
 
     return (
         <>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
                 {cards.map((card, index) => {
                     const Icon = card.icon
                     const isFlipped = flippedCards.includes(index)
@@ -81,7 +72,7 @@ export default function FlipCards() {
                     return (
                         <div
                             key={index}
-                            className="flip-card-container h-64"
+                            className="flip-card-container h-80"
                             onMouseEnter={() => handleMouseEnter(index)}
                             onMouseLeave={() => handleMouseLeave(index)}
                             onClick={() => handleClick(index)}
@@ -98,7 +89,7 @@ export default function FlipCards() {
                                             <CardDescription className="text-sm text-gray-600 line-clamp-3">
                                                 {card.shortDescription}
                                             </CardDescription>
-                                            <div className="mt-4 text-xs text-gray-400 flex items-center gap-1">
+                                            <div className="absolute bottom-0 right-0 mt-4 text-xs text-gray-400 flex items-center gap-1 p-2">
                                                 <span className="hidden sm:inline">Hover to learn more</span>
                                                 <span className="sm:hidden">Tap to learn more</span>
                                             </div>
@@ -126,7 +117,7 @@ export default function FlipCards() {
                                                 {card.fullDescription}
                                             </CardDescription>
                                             <div className="mt-4 pt-3 border-t border-gray-100">
-                        <span className="text-xs text-gray-400">
+                        <span className="absolute bottom-2 right-2 mt-4 text-xs text-gray-400">
                           <span className="hidden sm:inline">Hover away to go back</span>
                           <span className="sm:hidden">Tap arrow to go back</span>
                         </span>
