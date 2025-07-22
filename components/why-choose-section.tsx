@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef } from "react"
+import { useState, useRef, useEffect } from "react"
 import {
     Clock,
     Smartphone,
@@ -13,7 +13,6 @@ import {
     ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-
 const features = [
     {
         icon: Layers,
@@ -62,45 +61,69 @@ const features = [
 export default function WhyChooseSection() {
     const scrollContainerRef = useRef<HTMLDivElement>(null)
     const [currentIndex, setCurrentIndex] = useState(0)
+    const [isScrolling, setIsScrolling] = useState(false)
+
+    // Function to scroll to a specific index with proper cyclic behavior
+    const scrollToIndex = (index: number, animate = true) => {
+        if (!scrollContainerRef.current || isScrolling) return
+
+        // Ensure index is within bounds (for safety)
+        const safeIndex = ((index % features.length) + features.length) % features.length
+
+        const container = scrollContainerRef.current
+        const cardWidth = container.children[0]?.clientWidth || 0
+        const gap = window.innerWidth < 640 ? 16 : 24
+        const scrollPosition = safeIndex * (cardWidth + gap)
+
+        setIsScrolling(true)
+
+        container.scrollTo({
+            left: scrollPosition,
+            behavior: animate ? "smooth" : "auto",
+        })
+
+        setCurrentIndex(safeIndex)
+
+        // Reset scrolling flag after animation
+        setTimeout(() => setIsScrolling(false), 500)
+    }
 
     const scrollLeft = () => {
-        if (scrollContainerRef.current) {
-            const cardWidth = scrollContainerRef.current.children[0]?.clientWidth || 0
-            const gap = window.innerWidth < 640 ? 16 : 24 // Smaller gap on mobile
-            const scrollAmount = cardWidth + gap
-            scrollContainerRef.current.scrollBy({
-                left: -scrollAmount,
-                behavior: "smooth",
-            })
-            setCurrentIndex(Math.max(0, currentIndex - 1))
-        }
+        // Calculate new index with cyclic behavior
+        const newIndex = currentIndex === 0 ? features.length - 1 : currentIndex - 1
+        scrollToIndex(newIndex)
     }
 
     const scrollRight = () => {
-        if (scrollContainerRef.current) {
-            const cardWidth = scrollContainerRef.current.children[0]?.clientWidth || 0
-            const gap = window.innerWidth < 640 ? 16 : 24 // Smaller gap on mobile
-            const scrollAmount = cardWidth + gap
-            scrollContainerRef.current.scrollBy({
-                left: scrollAmount,
-                behavior: "smooth",
-            })
-            setCurrentIndex(Math.min(features.length - 1, currentIndex + 1))
-        }
+        // Calculate new index with cyclic behavior
+        const newIndex = currentIndex === features.length - 1 ? 0 : currentIndex + 1
+        scrollToIndex(newIndex)
     }
 
-    const scrollToIndex = (index: number) => {
-        if (scrollContainerRef.current) {
-            const cardWidth = scrollContainerRef.current.children[0]?.clientWidth || 0
-            const gap = window.innerWidth < 640 ? 16 : 24 // Smaller gap on mobile
-            const scrollPosition = index * (cardWidth + gap)
-            scrollContainerRef.current.scrollTo({
-                left: scrollPosition,
-                behavior: "smooth",
-            })
-            setCurrentIndex(index)
+    // Handle scroll events to update current index
+    useEffect(() => {
+        const container = scrollContainerRef.current
+        if (!container) return
+
+        const handleScroll = () => {
+            if (isScrolling) return // Don't update during programmatic scrolling
+
+            const cardWidth = container.children[0]?.clientWidth || 0
+            const gap = window.innerWidth < 640 ? 16 : 24
+            const scrollLeft = container.scrollLeft
+
+            // Calculate the current index based on scroll position
+            const newIndex = Math.round(scrollLeft / (cardWidth + gap))
+
+            // Handle the case where we've scrolled to the end
+            if (newIndex !== currentIndex && newIndex >= 0 && newIndex < features.length) {
+                setCurrentIndex(newIndex)
+            }
         }
-    }
+
+        container.addEventListener("scroll", handleScroll)
+        return () => container.removeEventListener("scroll", handleScroll)
+    }, [currentIndex, isScrolling])
 
     return (
         <>
@@ -123,7 +146,6 @@ export default function WhyChooseSection() {
                         variant="outline"
                         size="icon"
                         className="absolute left-0 sm:left-2 md:left-4 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
-                        disabled={currentIndex === 0}
                     >
                         <ChevronLeft className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                     </Button>
@@ -134,7 +156,6 @@ export default function WhyChooseSection() {
                         variant="outline"
                         size="icon"
                         className="absolute right-0 sm:right-2 md:right-4 top-1/2 -translate-y-1/2 z-10 bg-white shadow-lg hover:shadow-xl transition-all duration-300 rounded-full w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12"
-                        disabled={currentIndex === features.length - 1}
                     >
                         <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
                     </Button>
@@ -175,6 +196,7 @@ export default function WhyChooseSection() {
                                 className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                                     currentIndex === index ? "bg-blue-600 scale-125" : "bg-gray-300 hover:bg-gray-400"
                                 }`}
+                                aria-label={`Go to slide ${index + 1}`}
                             />
                         ))}
                     </div>

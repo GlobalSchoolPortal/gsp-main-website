@@ -1,8 +1,10 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
-import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Fingerprint, Code, MessageSquare } from "lucide-react"
+import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
+import { Fingerprint, Code, MessageSquare, ExternalLink } from "lucide-react"
 
 export default function FlipCards() {
     const [flippedCards, setFlippedCards] = useState<number[]>([])
@@ -30,6 +32,20 @@ export default function FlipCards() {
         toggleCard(index)
     }
 
+    // Handle link click without toggling the card
+    const handleLinkClick = (e: React.MouseEvent) => {
+        e.stopPropagation() // Prevent the card from flipping back when clicking the link
+    }
+
+    // Helper function to determine if a link is external
+    const isExternalLink = (url: string) => {
+        return (
+            url.startsWith("http://") ||
+            url.startsWith("https://") ||
+            (url.includes(".") && !url.startsWith("/") && !url.startsWith("#"))
+        )
+    }
+
     const cards = [
         {
             icon: Fingerprint,
@@ -40,6 +56,7 @@ export default function FlipCards() {
                 "Seamlessly manage school operations and foster real-time parent-teacher connection—all in one powerful platform.",
             fullDescription:
                 "From admissions and attendance to fee management, communication, and reporting—GlobalSchoolPortal brings every stakeholder onto a single, intuitive dashboard designed to enhance productivity, transparency, and engagement.",
+            link: "/#modules",
         },
         {
             icon: Code,
@@ -50,6 +67,7 @@ export default function FlipCards() {
                 "PyDrag is a visual programming interactive environment that lets students build logical workflows using drag-and-drop blocks.",
             fullDescription:
                 "Designed for beginners yet powerful enough for advanced users, PyDrag simplifies Python learning through interactive coding, real-time output, and AI-powered assistance. Students can focus on logic and creativity while gaining confidence in coding fundamentals.",
+            link: "https://pydrag.globalschoolportal.com",
         },
         {
             icon: MessageSquare,
@@ -60,6 +78,7 @@ export default function FlipCards() {
                 "GoTogether enables communication between parents, teachers, and school admins — combining social features with structured school engagement.",
             fullDescription:
                 "From real-time updates to event coordination and group chats, GoTogether creates a vibrant digital space for seamless communication. Share announcements, plan carpools, and stay connected with your school community—all from one easy-to-use app.",
+            link: "",
         },
     ]
 
@@ -69,6 +88,8 @@ export default function FlipCards() {
                 {cards.map((card, index) => {
                     const Icon = card.icon
                     const isFlipped = flippedCards.includes(index)
+                    const hasLink = card.link && card.link.trim() !== ""
+                    const isExternal = hasLink ? isExternalLink(card.link) : false
 
                     return (
                         <div
@@ -97,20 +118,32 @@ export default function FlipCards() {
                                         </CardHeader>
                                     </Card>
                                 </div>
-
                                 {/* Back Side */}
                                 <div className="flip-card-face flip-card-back">
-                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-gray-50 to-white cursor-pointer h-full">
-                                        <CardHeader className="h-full flex flex-col">
+                                    <Card className="border-0 shadow-lg bg-gradient-to-br from-gray-50 to-white cursor-pointer h-full flex flex-col">
+                                        <CardHeader className="flex-1">
                                             <CardTitle className="text-lg font-bold mb-3 text-gray-800">{card.title}</CardTitle>
-                                            <CardDescription className="text-sm text-gray-600 leading-relaxed flex-1">
+                                            <CardDescription className="text-sm text-gray-600 leading-relaxed">
                                                 {card.fullDescription}
                                             </CardDescription>
-                                            <div className="absolute bottom-2 right-2 text-xs text-gray-400">
+                                        </CardHeader>
+                                        <CardFooter className="pt-2 pb-4 flex justify-between items-center border-t border-gray-100">
+                                            <div className="text-xs text-gray-400">
                                                 <span className="hidden sm:inline">Hover away to go back</span>
                                                 <span className="sm:hidden">Tap to go back</span>
                                             </div>
-                                        </CardHeader>
+                                            {hasLink && (
+                                                <a
+                                                    href={card.link}
+                                                    onClick={handleLinkClick}
+                                                    target={isExternal ? "_blank" : undefined}
+                                                    rel={isExternal ? "noopener noreferrer" : undefined}
+                                                    className="inline-flex items-center gap-1 text-sm font-medium text-blue-600 hover:text-blue-800 transition-colors"
+                                                >
+                                                    Learn more <ExternalLink className="w-3 h-3" />
+                                                </a>
+                                            )}
+                                        </CardFooter>
                                     </Card>
                                 </div>
                             </div>
@@ -118,12 +151,10 @@ export default function FlipCards() {
                     )
                 })}
             </div>
-
             <style jsx global>{`
                 .flip-card-container {
                     perspective: 1000px;
                 }
-
                 .flip-card-inner {
                     position: relative;
                     width: 100%;
@@ -131,11 +162,9 @@ export default function FlipCards() {
                     transition: transform 0.6s;
                     transform-style: preserve-3d;
                 }
-
                 .flip-card-inner.is-flipped {
                     transform: rotateY(180deg);
                 }
-
                 .flip-card-face {
                     position: absolute;
                     width: 100%;
@@ -143,15 +172,12 @@ export default function FlipCards() {
                     backface-visibility: hidden;
                     -webkit-backface-visibility: hidden;
                 }
-
                 .flip-card-front {
                     z-index: 2;
                 }
-
                 .flip-card-back {
                     transform: rotateY(180deg);
                 }
-
                 .line-clamp-3 {
                     display: -webkit-box;
                     -webkit-line-clamp: 3;
