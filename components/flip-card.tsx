@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
-import { Fingerprint, Code, MessageSquare, Bell, ArrowLeft } from "lucide-react"
+import { Fingerprint, Code, MessageSquare } from "lucide-react"
 
 export default function FlipCards() {
     const [flippedCards, setFlippedCards] = useState<number[]>([])
@@ -26,10 +26,8 @@ export default function FlipCards() {
     }
 
     const handleClick = (index: number) => {
-        // Handle click for mobile devices
-        if (!window.matchMedia("(hover: hover)").matches) {
-            toggleCard(index)
-        }
+        // Always toggle on click, regardless of device
+        toggleCard(index)
     }
 
     const cards = [
@@ -38,7 +36,8 @@ export default function FlipCards() {
             iconColor: "text-blue-600",
             bgColor: "bg-blue-100",
             title: "Unified ERP & CRM",
-            shortDescription: "Seamlessly manage school operations and foster real-time parent-teacher connection—all in one powerful platform.",
+            shortDescription:
+                "Seamlessly manage school operations and foster real-time parent-teacher connection—all in one powerful platform.",
             fullDescription:
                 "From admissions and attendance to fee management, communication, and reporting—GlobalSchoolPortal brings every stakeholder onto a single, intuitive dashboard designed to enhance productivity, transparency, and engagement.",
         },
@@ -47,19 +46,21 @@ export default function FlipCards() {
             iconColor: "text-green-600",
             bgColor: "bg-green-100",
             title: "PyDrag Coding Platform",
-            shortDescription: "PyDrag is a visual programming interactive environment that lets students build logical workflows using drag-and-drop blocks.",
+            shortDescription:
+                "PyDrag is a visual programming interactive environment that lets students build logical workflows using drag-and-drop blocks.",
             fullDescription:
-                "Designed for beginners yet powerful enough for advanced users, PyDrag simplifies Python learning through interactive coding, real-time output, and AI-powered assistance. Students can focus on logic and creativity while gaining confidence in coding fundamentals."
+                "Designed for beginners yet powerful enough for advanced users, PyDrag simplifies Python learning through interactive coding, real-time output, and AI-powered assistance. Students can focus on logic and creativity while gaining confidence in coding fundamentals.",
         },
         {
             icon: MessageSquare,
             iconColor: "text-purple-600",
             bgColor: "bg-purple-100",
             title: "GoGether Community",
-            shortDescription: "GoTogether enables communication between parents, teachers, and school admins — combining social features with structured school engagement.",
+            shortDescription:
+                "GoTogether enables communication between parents, teachers, and school admins — combining social features with structured school engagement.",
             fullDescription:
-                "From real-time updates to event coordination and group chats, GoTogether creates a vibrant digital space for seamless communication. Share announcements, plan carpools, and stay connected with your school community—all from one easy-to-use app.’."
-        }
+                "From real-time updates to event coordination and group chats, GoTogether creates a vibrant digital space for seamless communication. Share announcements, plan carpools, and stay connected with your school community—all from one easy-to-use app.",
+        },
     ]
 
     return (
@@ -89,7 +90,7 @@ export default function FlipCards() {
                                             <CardDescription className="text-sm text-gray-600 line-clamp-3">
                                                 {card.shortDescription}
                                             </CardDescription>
-                                            <div className="absolute bottom-0 right-0 mt-4 text-xs text-gray-400 flex items-center gap-1 p-2">
+                                            <div className="absolute bottom-2 right-2 text-xs text-gray-400 flex items-center gap-1">
                                                 <span className="hidden sm:inline">Hover to learn more</span>
                                                 <span className="sm:hidden">Tap to learn more</span>
                                             </div>
@@ -101,26 +102,13 @@ export default function FlipCards() {
                                 <div className="flip-card-face flip-card-back">
                                     <Card className="border-0 shadow-lg bg-gradient-to-br from-gray-50 to-white cursor-pointer h-full">
                                         <CardHeader className="h-full flex flex-col">
-                                            <div className="flex items-center justify-between mb-4">
-                                                <button
-                                                    className="sm:hidden p-1 rounded-full hover:bg-gray-100 transition-colors"
-                                                    onClick={(e) => {
-                                                        e.stopPropagation()
-                                                        toggleCard(index)
-                                                    }}
-                                                >
-                                                    <ArrowLeft className="w-4 h-4 text-gray-500" />
-                                                </button>
-                                            </div>
-                                            <CardTitle className="text-md font-bold mb-3 text-gray-800">{card.title}</CardTitle>
+                                            <CardTitle className="text-lg font-bold mb-3 text-gray-800">{card.title}</CardTitle>
                                             <CardDescription className="text-sm text-gray-600 leading-relaxed flex-1">
                                                 {card.fullDescription}
                                             </CardDescription>
-                                            <div className="mt-4 pt-3 border-t border-gray-100">
-                        <span className="absolute bottom-2 right-2 mt-4 text-xs text-gray-400">
-                          <span className="hidden sm:inline">Hover away to go back</span>
-                          <span className="sm:hidden">Tap arrow to go back</span>
-                        </span>
+                                            <div className="absolute bottom-2 right-2 text-xs text-gray-400">
+                                                <span className="hidden sm:inline">Hover away to go back</span>
+                                                <span className="sm:hidden">Tap to go back</span>
                                             </div>
                                         </CardHeader>
                                     </Card>
