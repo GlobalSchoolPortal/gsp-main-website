@@ -9,22 +9,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1,
         },
         {
-            url: "https://www.globalschoolportal.com/features",
+            url: "https://www.globalschoolportal.com/#features",
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.8,
         },
         {
-            url: "https://www.globalschoolportal.com/modules",
+            url: "https://www.globalschoolportal.com/#modules",
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.8,
-        },
-        {
-            url: "https://www.globalschoolportal.com/contact",
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.6,
         },
     ]
 }
