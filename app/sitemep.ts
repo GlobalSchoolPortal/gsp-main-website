@@ -9,25 +9,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1,
         },
         {
-            url: "https://www.globalschoolportal.com/#features",
+            url: "https://pydrag.globalschoolportal.com/",
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.8,
         },
         {
-            url: "https://www.globalschoolportal.com/#modules",
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: "https://www.pydrag.globalschoolportal.com/",
-            lastModified: new Date(),
-            changeFrequency: "monthly",
-            priority: 0.8,
-        },
-        {
-            url: "https://www.master.globalschoolportal.com/",
+            url: "https://master.globalschoolportal.com/",
             lastModified: new Date(),
             changeFrequency: "monthly",
             priority: 0.8,
