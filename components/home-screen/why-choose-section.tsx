@@ -2,63 +2,23 @@
 
 import { useState, useRef, useEffect } from "react"
 import {
-    Clock,
-    Smartphone,
-    BarChart3,
-    Layers,
-    Users,
-    GraduationCap,
-    Shield,
     ChevronLeft,
     ChevronRight,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-const features = [
-    {
-        icon: Layers,
-        title: "Unified Platform",
-        description: "No more switching tools—everything you need in one seamless platform.",
-        color: "bg-blue-100 text-blue-600",
-    },
-    {
-        icon: Users,
-        title: "Role-Based Access",
-        description: "Tailored dashboards for Admins, Teachers, and Parents—everything you need, only when you need it.",
-        color: "bg-green-100 text-green-600",
-    },
-    {
-        icon: GraduationCap,
-        title: "Educator-Driven Design",
-        description: "Built with real classroom insights to meet the unique needs of modern schools.",
-        color: "bg-purple-100 text-purple-600",
-    },
-    {
-        icon: Shield,
-        title: "Cloud-Based Security",
-        description: "Access your data safely anytime, anywhere with our secure cloud infrastructure.",
-        color: "bg-orange-100 text-orange-600",
-    },
-    {
-        icon: BarChart3,
-        title: "Data-Driven Decisions",
-        description: "Unlock powerful insights with real-time analytics and smart reporting tools.",
-        color: "bg-indigo-100 text-indigo-600",
-    },
-    {
-        icon: Clock,
-        title: "Time Efficient Workflows",
-        description: "Automate everyday tasks and reclaim your time to focus on what truly matters—education.",
-        color: "bg-red-100 text-red-600",
-    },
-    {
-        icon: Smartphone,
-        title: "Mobile First Experience",
-        description: "Stay connected and in control—anytime, anywhere—with our fully responsive mobile platform.",
-        color: "bg-teal-100 text-teal-600",
-    },
-]
 
-export default function WhyChooseSection() {
+type FeatureCard = {
+    title: string
+    description: string
+    icon: React.FC
+    color: string
+}
+
+type FeatureProps = {
+    features: FeatureCard[]
+}
+
+export default function WhyChooseSection({features}: FeatureProps) {
     const scrollContainerRef = useRef<HTMLDivElement>(null)
     const [currentIndex, setCurrentIndex] = useState(0)
     const [isScrolling, setIsScrolling] = useState(false)
@@ -176,7 +136,7 @@ export default function WhyChooseSection() {
                                     <div
                                         className={`w-12 h-12 sm:w-16 sm:h-16 md:w-18 md:h-18 lg:w-20 lg:h-20 ${feature.color} rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4 md:mb-6`}
                                     >
-                                        <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 md:w-9 md:h-9 lg:w-10 lg:h-10" />
+                                        <IconComponent />
                                     </div>
                                     <h3 className="text-lg sm:text-xl md:text-2xl font-semibold mb-2 sm:mb-3 md:mb-4 text-gray-900">
                                         {feature.title}
@@ -202,10 +162,10 @@ export default function WhyChooseSection() {
                     </div>
                 </div>
 
-                {/* Mobile Instructions */}
-                <div className="text-center mt-6 sm:mt-8">
-                    <p className="text-xs sm:text-sm text-gray-500">Use arrow buttons or swipe to explore all features</p>
-                </div>
+                {/*/!* Mobile Instructions *!/*/}
+                {/*<div className="text-center mt-6 sm:mt-8">*/}
+                {/*    <p className="text-xs sm:text-sm text-gray-500">Use arrow buttons or swipe to explore all features</p>*/}
+                {/*</div>*/}
             </div>
 
             <style jsx>{`

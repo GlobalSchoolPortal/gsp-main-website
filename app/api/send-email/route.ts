@@ -18,7 +18,18 @@ function validateFormData(data: any) {
     errors.push("Address must be at least 10 characters long")
   }
 
-  if (!data.contactNumber || !phoneRegex.test(data.contactNumber.replace(/\s/g, ""))) {
+  if (data.contactNumber) {
+    const cleanedNumber = data.contactNumber.replace(/\s/g, "");
+    if (cleanedNumber.startsWith('+')) {
+      if (cleanedNumber.length !== 13) {
+        errors.push("Please enter a valid contact number");
+      }
+    } else if (cleanedNumber.length !== 10) {
+      errors.push("Please enter a valid contact number");
+    }
+  }
+
+  if (!data.contactNumber || !phoneRegex.test(data.contactNumber.replace(/\s/g, "")) || data.contactNumber.length < 10 || data.contactNumber.length > 15) {
     errors.push("Please enter a valid contact number")
   }
 

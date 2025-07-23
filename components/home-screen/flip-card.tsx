@@ -4,9 +4,23 @@ import type React from "react"
 
 import { useState } from "react"
 import { Card, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card"
-import { Fingerprint, Code, MessageSquare, ExternalLink } from "lucide-react"
+import {ExternalLink, LucideIcon} from "lucide-react";
 
-export default function FlipCards() {
+type CardType = {
+    icon: LucideIcon;
+    iconColor: string;
+    bgColor: string;
+    title: string;
+    shortDescription: string;
+    fullDescription: string;
+    link: string;
+};
+
+type FlipCardsProps = {
+    cards: CardType[];
+};
+
+export default function FlipCards({cards}: FlipCardsProps) {
     const [flippedCards, setFlippedCards] = useState<number[]>([])
 
     const toggleCard = (index: number) => {
@@ -45,42 +59,6 @@ export default function FlipCards() {
             (url.includes(".") && !url.startsWith("/") && !url.startsWith("#"))
         )
     }
-
-    const cards = [
-        {
-            icon: Fingerprint,
-            iconColor: "text-blue-600",
-            bgColor: "bg-blue-100",
-            title: "Unified ERP & CRM",
-            shortDescription:
-                "Seamlessly manage school operations and foster real-time parent-teacher connection—all in one powerful platform.",
-            fullDescription:
-                "From admissions and attendance to fee management, communication, and reporting—GlobalSchoolPortal brings every stakeholder onto a single, intuitive dashboard designed to enhance productivity, transparency, and engagement.",
-            link: "/#modules",
-        },
-        {
-            icon: Code,
-            iconColor: "text-green-600",
-            bgColor: "bg-green-100",
-            title: "PyDrag Coding Platform",
-            shortDescription:
-                "PyDrag is a visual programming interactive environment that lets students build logical workflows using drag-and-drop blocks.",
-            fullDescription:
-                "Designed for beginners yet powerful enough for advanced users, PyDrag simplifies Python learning through interactive coding, real-time output, and AI-powered assistance. Students can focus on logic and creativity while gaining confidence in coding fundamentals.",
-            link: "https://pydrag.globalschoolportal.com",
-        },
-        {
-            icon: MessageSquare,
-            iconColor: "text-purple-600",
-            bgColor: "bg-purple-100",
-            title: "GoGether Community",
-            shortDescription:
-                "GoTogether enables communication between parents, teachers, and school admins — combining social features with structured school engagement.",
-            fullDescription:
-                "From real-time updates to event coordination and group chats, GoTogether creates a vibrant digital space for seamless communication. Share announcements, plan carpools, and stay connected with your school community—all from one easy-to-use app.",
-            link: "",
-        },
-    ]
 
     return (
         <>
