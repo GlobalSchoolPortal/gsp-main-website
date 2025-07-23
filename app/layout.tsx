@@ -13,8 +13,7 @@ const inter = Roboto({
 
 export const metadata: Metadata = {
     title: "Global School Portal - Complete School Management Solution",
-    description:
-        "Seamlessly uniting school management, coding education, and student-parent communities with Global School Portal. Comprehensive CRM, biometric attendance, PydragAnd coding platform, and GOGETHER community features.",
+    description: "Manage school operations, teach coding, and build a strong school community with Global School Portal.",
     keywords: "school management, CRM, biometric attendance, coding education, school portal, education technology",
     authors: [{name: "Global School Portal Team"}],
     creator: "One Above All Pvt. Ltd.",

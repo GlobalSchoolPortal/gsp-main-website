@@ -19,10 +19,10 @@ export default function HeroSection({ onRequestDemo }: HeroSectionProps) {
           <br />
           Global School Portal
         </span>
-                <h1 className="font-arial text-2xl sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
+                <h2 className="font-arial text-2xl sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                     Effortless Management. Engaged Parents. Empowered Learners.
                     <br />
-                </h1>
+                </h2>
                 <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 max-w-3xl mx-auto px-4">
                     A unified platform that Simplify Administration, Empower Learning, and Connect Communities — with Smart Tools,
                     Drag-and-Drop Coding, and Seamless Communication platform.

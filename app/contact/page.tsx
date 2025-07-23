@@ -64,7 +64,7 @@ export default function ContactPage() {
                 <Globe className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-xl font-bold text-gray-900">Global School Portal</h1>
+                <h2 className="text-xl font-bold text-gray-900">Global School Portal</h2>
                 {/*<p className="text-xs text-gray-500">IntegraSphere Platform</p>*/}
               </div>
             </Link>
@@ -80,7 +80,7 @@ export default function ContactPage() {
           {/* Page Header */}
           <div className="text-center mb-12">
             <Badge className="mb-4 bg-blue-100 text-blue-800 hover:bg-blue-100">Get in Touch</Badge>
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Contact Global School Portal</h1>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Contact Global School Portal</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               Ready to transform your school with our comprehensive management platform? Get in touch with our team for
               a personalized demo.
